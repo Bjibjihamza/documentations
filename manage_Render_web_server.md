@@ -35,8 +35,8 @@ npm -v
 
 Create a New Project Directory Create a directory for your server project
 ```bash
-mkdir simple-server
-cd simple-server
+mkdir server
+cd server
 ```
 Initialize a Node.js Project Initialize a package.json file
 ```bash
