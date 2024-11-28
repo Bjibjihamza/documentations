@@ -84,9 +84,35 @@ http://localhost:4000
 #### To Stop the Server
 - Press `Ctrl + C` in your terminal.
 
+### 2. Install Git
+Update Your System
+```bash
+sudo apt update
+```
+Install Git
+```bash
+sudo apt install git -y
+```
+Verify the Installation
+```bash
+git --version
+```
+You should see a version number, like git version 2.x.x.
+
+Configure Git
+```bash
+git config --global user.name "Your Name"
+```
+```bash
+git config --global user.email "your-email@example.com"
+```
+To verify your configuration, run:
+```bash
+git config --list
+```
 
 
-### 2. manage your Render web server
+### 3. manage your Render web server
  #### Create a Render Account
  - If you don't have a Render account, go to [Render]([https://render.com/])  and sign up.
 
