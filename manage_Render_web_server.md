@@ -241,7 +241,7 @@ Once your app is deployed, you can use the Render CLI to interact with it.
      - Look for the "SSH" or "Shell" option (if available).
     
   - Connect via SSH:
-     - ssh username@your-service.onrender.com
+     - ssh `username@your-service.onrender.com`
 
 
 
