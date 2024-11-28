@@ -84,7 +84,8 @@ http://localhost:4000
 #### To Stop the Server
 - Press `Ctrl + C` in your terminal.
 
-### 2. Install Git
+### 2. deploy your Node.js server code to GitHub
+#### 2.1 If Git is not installed on your Linux system, you can install it by following these steps:
 Update Your System
 ```bash
 sudo apt update
@@ -111,6 +112,47 @@ To verify your configuration, run:
 git config --list
 ```
 
+#### 2.2 Prepare Your Project for GitHub
+Initialize a Git Repository
+Navigate to your project folder and run:
+```bash
+git init   
+```
+Create a .gitignore File
+Exclude unnecessary files like node_modules. Create a .gitignore file:
+```bash
+touch .gitignore
+```
+```bash
+nano .gitignore
+```
+Add the following to .gitignore:
+```bash
+node_modules
+.env
+```
+
+#### 2.3 Commit Your Code
+Stage Your Changes
+```bash
+git add .
+```
+Commit Your Code
+```bash
+git commit -m "Initial commit: Node.js server"
+```
+
+####2.4 Create a Repository on GitHub
+     - Go to [GitHub]([https://github.com/]) and log in.
+     - Click the + button in the top-right corner and select New repository.
+     - Fill in the repository name and other details, then click Create repository.
+
+####2.5 Link Your Local Repository to GitHub
+```bash
+git remote add origin https://github.com/your-username/your-repository.git
+```
+#### 2.6 Verify Your Code on GitHub
+Go to your repository URL (e.g., `https://github.com/your-username/your-repository`). Your code should now be visible.
 
 ### 3. manage your Render web server
  #### Create a Render Account
