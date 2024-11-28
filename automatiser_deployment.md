@@ -186,3 +186,40 @@ pm2 status
 echo "Déploiement terminé avec succès!"
 
 ```
+Explication des différentes étapes dans le script
+  - Mise à jour du système : Vous mettez à jour le système d'exploitation pour vous assurer que toutes les dépendances sont à jour.
+  - Installation de Node.js et MongoDB : Si Node.js ou MongoDB n'est pas déjà installé sur votre serveur, ces commandes permettent de les installer.
+  - Clonage des dépôts Git : Le script clone les dépôts backend et frontend depuis GitHub (ou tout autre dépôt git que vous utilisez) vers le serveur. Si les dépôts existent déjà, il effectue un git pull pour récupérer les dernières mises à jour.
+  - Installation des dépendances : Chaque répertoire (frontend et backend) a ses propres dépendances, qui sont installées avec npm install.
+  - Build du frontend : Le frontend React est construit avec npm run build pour générer les fichiers statiques. Ces fichiers sont ensuite copiés dans le répertoire où Nginx peut les servir.
+  - Démarrage du backend avec PM2 : PM2 est utilisé pour démarrer le backend en mode production et pour s'assurer que le serveur Node.js tourne en arrière-plan.
+  - Démarrage automatique avec PM2 : pm2 startup configure le serveur pour que PM2 redémarre l'application automatiquement après un redémarrage du serveur.
+Vérification du statut de PM2 : Le script termine par une vérification pour s'assurer que le backend fonctionne correctement.
+#### 3. Rendre le script executable et l'executer 
+Rendre le script exécutable
+```bash
+chmod +x deploy.sh
+```
+```bash
+./deploy.sh
+```
+
+### 4.  Automatisation avec Cron (Optionnel)
+Si vous souhaitez que ce déploiement soit effectué automatiquement à intervalles réguliers (par exemple, chaque fois qu'il y a une mise à jour dans votre dépôt Git), vous pouvez utiliser cron jobs.
+Exemple de cron job pour exécuter le script tous les jours à minuit :
+ #### 4.1 Ouvrez votre crontab : 
+ ```bash
+crontab -e
+```
+
+#### 4.2 Ajoutez la ligne suivante pour exécuter le script à minuit chaque jour :
+```bash
+0 0 * * * /path/to/deploy.sh
+```
+
+#### Surveillance du déploiment 
+Vous pouvez ajouter des alertes de logs pour vérifier si le déploiement a échoué ou réussi. Par exemple, dans votre script, vous pouvez rediriger la sortie vers un fichier log :
+
+```bash
+./deploy.sh > deploy.log 2>&1
+```
