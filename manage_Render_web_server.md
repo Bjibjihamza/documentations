@@ -143,9 +143,9 @@ git commit -m "Initial commit: Node.js server"
 ```
 
 #### 2.4 Create a Repository on GitHub
-     - Go to [GitHub]([https://github.com/]) and log in.
-     - Click the + button in the top-right corner and select New repository.
-     - Fill in the repository name and other details, then click Create repository.
+   - Go to [GitHub]([https://github.com/]) and log in.
+   - Click the + button in the top-right corner and select New repository.
+   - Fill in the repository name and other details, then click Create repository.
 
 #### 2.5 Link Your Local Repository to GitHub
 ```bash
