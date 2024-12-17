@@ -6,10 +6,10 @@ de votre application.Le script pourra être exécuté sur votre serveur à chaqu
 
 Variables (personnalisez ces variables selon votre projet)
 ```bash
-FRONTEND_DIR="/var/www/my-app"
-BACKEND_DIR="/var/www/my-backend"
-GIT_REPO_BACKEND="git@github.com:your-username/your-backend-repo.git"
-GIT_REPO_FRONTEND="git@github.com:your-username/your-frontend-repo.git"
+FRONTEND_DIR="/var/www/frontend"
+BACKEND_DIR="/var/www/backend"
+GIT_REPO_BACKEND="git@github.com:your-username/backend-repo.git"
+GIT_REPO_FRONTEND="git@github.com:your-username/frontend-repo.git"
 NODE_VERSION="14"  # Exemple : version de Node.js
 PORT=4000  # Port de l'API backend (modifiez selon votre configuration)
 ```
