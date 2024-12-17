@@ -166,9 +166,10 @@ echo "Build du frontend React..."
 cd $FRONTEND_DIR
 npm run build
 
-# Étape 8 : Transfert des fichiers build du frontend vers le serveur web (Nginx)
-echo "Transfert du frontend vers Nginx..."
+# Étape 8 : Transfert des fichiers build du frontend vers le serveur web ( Apache2)
+echo "Transfert du frontend vers Apache2..."
 sudo cp -r $FRONTEND_DIR/build/* /var/www/html/
+
 
 # Étape 9 : Démarrer le backend avec PM2
 echo "Démarrage du backend avec PM2..."
@@ -191,7 +192,7 @@ Explication des différentes étapes dans le script
   - Installation de Node.js et MongoDB : Si Node.js ou MongoDB n'est pas déjà installé sur votre serveur, ces commandes permettent de les installer.
   - Clonage des dépôts Git : Le script clone les dépôts backend et frontend depuis GitHub (ou tout autre dépôt git que vous utilisez) vers le serveur. Si les dépôts existent déjà, il effectue un git pull pour récupérer les dernières mises à jour.
   - Installation des dépendances : Chaque répertoire (frontend et backend) a ses propres dépendances, qui sont installées avec npm install.
-  - Build du frontend : Le frontend React est construit avec npm run build pour générer les fichiers statiques. Ces fichiers sont ensuite copiés dans le répertoire où Nginx peut les servir.
+  - Build du frontend : Le frontend React est construit avec npm run build pour générer les fichiers statiques. Ces fichiers sont ensuite copiés dans le répertoire où  Apache2 peut les servir.
   - Démarrage du backend avec PM2 : PM2 est utilisé pour démarrer le backend en mode production et pour s'assurer que le serveur Node.js tourne en arrière-plan.
   - Démarrage automatique avec PM2 : pm2 startup configure le serveur pour que PM2 redémarre l'application automatiquement après un redémarrage du serveur.
 Vérification du statut de PM2 : Le script termine par une vérification pour s'assurer que le backend fonctionne correctement.
