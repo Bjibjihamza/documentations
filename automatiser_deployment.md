@@ -78,9 +78,9 @@ echo "Build du frontend React..."
 cd $FRONTEND_DIR
 npm run build
 ```
-Étape 8 : Transfert des fichiers build du frontend vers le serveur web (Nginx)
+Étape 8 : Transfert des fichiers build du frontend vers le serveur web (Apache2)
 ```bash
-echo "Transfert du frontend vers Nginx..."
+echo "Transfert du frontend vers Apache2..."
 sudo cp -r $FRONTEND_DIR/build/* /var/www/html/
 ```
 Étape 9 : Démarrer le backend avec PM2
