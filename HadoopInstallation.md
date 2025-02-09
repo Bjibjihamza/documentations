@@ -281,12 +281,12 @@ Now that Hadoop is installed, we need to set the `HADOOP_HOME` and `PATH` enviro
     
    ```bash
     exit
-       ```
+   ```
 5. **Reload Environment Variables**:
     
    ```bash
     source /etc/profile
-       ```
+   ```
 
 ---
 
@@ -536,7 +536,7 @@ The `hdfs-site.xml` file contains configuration settings specific to HDFS (Had
         
         ```bash
         nano hdfs-site.xml
-                ```
+        ```
     - The file will initially contain only empty `<configuration>` tags.
         
 29. **Add the Required Properties:**
@@ -629,7 +629,7 @@ The `mapred-site.xml` file is used to configure the MapReduce framework in Had
         
         ```bash     
         cd /usr/local/hadoop/hadoop-3.3.6/etc/hadoop
-                ```
+        ```
                 
 37. **Edit the `mapred-site.xml` File:**
     
@@ -637,7 +637,7 @@ The `mapred-site.xml` file is used to configure the MapReduce framework in Had
         
         ```bash
         nano mapred-site.xml
-                ```
+        ```
 38. **Add the Required Properties:**
     
     - Replace the empty `<configuration>` tags with the following configuration:
@@ -695,14 +695,14 @@ The `yarn-site.xml` file is used to configure YARN, which is the resource mana
         ```bash
         
         cd /usr/local/hadoop/hadoop-3.3.6/etc/hadoop
-                ```
+        ```
 41. **Edit the `yarn-site.xml` File:**
     
     - Open the `yarn-site.xml` file in a text editor:
         
         ```bash        
         nano yarn-site.xml
-                ```
+        ```
 42. **Add the Required Properties:**
     
     - Replace the empty `<configuration>` tags with the following configuration:
@@ -719,7 +719,7 @@ The `yarn-site.xml` file is used to configure YARN, which is the resource mana
           </property>
         </configuration>
         
-                ```
+        ```
         
     - **Explanation of Properties:**
         
@@ -777,21 +777,21 @@ In this step, you configure Java heap sizes and other environment variables to o
         
         ```bash
         cd /usr/local/hadoop/hadoop-3.3.6/etc/hadoop
-                ```
+        ```
 50. **Edit the `hadoop-env.sh` File:**
     
     - Open the `hadoop-env.sh` file in a text editor:
         
         ```bash
         nano hadoop-env.sh
-                ```
+        ```
     - Add or modify the following lines to set the Java heap sizes and Hadoop options:
         
         ```bash
         export HADOOP_HEAPSIZE_MAX="500"
         export HADOOP_HEAPSIZE_MIN="250"
         export HADOOP_OPTS="-XX:-PrintWarnings -Djava.net.preferIPv4Stack=true"
-            ```
+        ```
             
     - **Explanation:**
         
@@ -811,19 +811,19 @@ In this step, you configure Java heap sizes and other environment variables to o
         
         ```bash
         nano log4j.properties
-                ```
+        ```
     - Add the following line to suppress the `NativeCodeLoader` warning:
         
         ```bash
         log4j.logger.org.apache.hadoop.util.NativeCodeLoader=ERROR
-                ```
+        ```
     - **Explanation:**
         
         - This line prevents the following warning from appearing in the logs:
             
             ```bash
             WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-                    ```
+            ```
                     
         - The warning occurs because Hadoop cannot find native libraries for compression. However, this does not affect functionality, as Hadoop falls back to Java-based implementations.
             
@@ -847,7 +847,7 @@ Before starting the HDFS NameNode, you must format the HDFS filesystem. This ste
         ```bash
         
         $ hdfs namenode -format
-                ```
+        ```
                 
     - **Explanation:**
         
@@ -861,7 +861,7 @@ Before starting the HDFS NameNode, you must format the HDFS filesystem. This ste
         
         ```bash
         Storage directory /usr/local/hadoop/data/nn has been successfully formatted.
-                ```
+        ```
                 
     - If the directory is already formatted, you may see a warning. You can proceed if you are sure you want to overwrite the existing data.
         
@@ -916,14 +916,14 @@ The NameNode is the central metadata server for HDFS. It manages the filesystem 
         
         ```bash
         cd /usr/local/hadoop/hadoop-3.3.6/sbin
-                ```
+        ```
 62. **Start the NameNode Service:**
     
     - Use the following command to start the NameNode:
         
         ```bash
 	    hdfs --daemon start namenode
-                ```
+        ```
     - **Explanation:**
         
         - The `hdfs --daemon start` command is used to start HDFS daemons in Hadoop 3.x.
@@ -935,7 +935,7 @@ The NameNode is the central metadata server for HDFS. It manages the filesystem 
     - Check the NameNode log file to ensure there are no errors:
         ```bash
         view /usr/local/hadoop/hadoop-3.3.6/logs/hadoop-<username>-namenode-<hostname>.log
-                ```
+        ```
                 
     - Replace `<username>` and `<hostname>` with your actual username and hostname.
         
@@ -954,14 +954,14 @@ The SecondaryNameNode is responsible for periodic checkpointing of the NameNode'
         
         ```bash
         hdfs --daemon start secondarynamenode
-                ```
+        ```
 65. **Verify the Logs:**
     
     - Check the SecondaryNameNode log file to ensure there are no errors:
         
         ```bash
         view /usr/local/hadoop/hadoop-3.6/logs/hadoop-<username>-secondarynamenode-<hostname>.log
-                ```
+        ```
 
 ---
 
@@ -977,14 +977,14 @@ The DataNode stores the actual data blocks in HDFS.
         
         ```bash
     hdfs --daemon start datanode
-                ```
+    ```
 67. **Verify the Logs:**
     
     - Check the DataNode log file to ensure there are no errors:
         
         ```bash
     view /usr/local/hadoop/hadoop-3.6/logs/hadoop-<username>-datanode-<hostname>.log
-                ```
+     ```
 
 ---
 
@@ -1000,7 +1000,7 @@ After starting the HDFS services, verify that all daemons are running.
         
         ```bash
          jps
-                ```
+        ```
     - Expected output:
         
         ```bash
@@ -1009,7 +1009,7 @@ After starting the HDFS services, verify that all daemons are running.
         15140 SecondaryNameNode
         15214 DataNode
         15335 Jps
-                ```
+         ```
     - If any of the processes (NameNode, SecondaryNameNode, DataNode) are missing, check the corresponding log files for errors.
         
 69. **Check Log Files:**
@@ -1018,7 +1018,7 @@ After starting the HDFS services, verify that all daemons are running.
         
         ```bash
          view /usr/local/hadoop/hadoop-3.6/logs/hadoop-<username>-<service>-<hostname>.log
-                ```
+         ```
 
 ---
 
@@ -1034,7 +1034,7 @@ The ResourceManager is the central authority that manages resources and schedule
         
         ```bash
         yarn --daemon start resourcemanager
-                ```
+        ```
 71. **Verify the Logs:**
     
     - Check the ResourceManager log file to ensure there are no errors:
@@ -1042,7 +1042,7 @@ The ResourceManager is the central authority that manages resources and schedule
         ```bash
         
         view /usr/local/hadoop/hadoop-3.6/logs/yarn-<username>-resourcemanager-<hostname>.log
-                ```
+         ```
 
 ---
 
@@ -1058,14 +1058,14 @@ The NodeManager is responsible for managing resources on individual nodes and ex
         
         ```bash
          yarn --daemon start nodemanager
-                ```
+        ```
 73. **Verify the Logs:**
     
     - Check the NodeManager log file to ensure there are no errors:
         
         ```bash
         $ view /usr/local/hadoop/hadoop-3.6/logs/yarn-<username>-nodemanager-<hostname>.log
-               ``` 
+        ``` 
 
 ---
 
@@ -1081,7 +1081,7 @@ The JobHistoryServer stores historical information about MapReduce jobs.
         
         ```bash
         mapred --daemon start historyserver
-                ```
+        ```
 75. **Verify the Logs:**
     
     - Check the JobHistoryServer log file to ensure there are no errors:
@@ -1128,7 +1128,7 @@ After starting all the Hadoop services, you need to verify that they are running
         
         ```bash  
          jps
-                ```
+         ```
     - Expected output:
         ```bash
         5783 NameNode
@@ -1138,7 +1138,7 @@ After starting all the Hadoop services, you need to verify that they are running
         25749 NodeManager
         9417 JobHistoryServer
         27779 Jps
-                ```
+        ```
     - **Explanation:**
         
         - **NameNode**: Manages the HDFS metadata.
@@ -1176,7 +1176,7 @@ The NameNode provides a web interface for monitoring the HDFS filesystem.
         ```bash
         
         google-chrome http://localhost:9870
-                ```
+        ```
     - Alternatively, you can use any browser and navigate to `http://localhost:9870`.
         
 84. **What to Check:**
@@ -1202,7 +1202,7 @@ The ResourceManager provides a web interface for monitoring YARN applications an
         
         ```bash
          google-chrome http://localhost:8088
-                ```
+         ```
     - Alternatively, navigate to `http://localhost:8088` in any browser.
         
 86. **What to Check:**
@@ -1228,7 +1228,7 @@ The JobHistoryServer provides a web interface for viewing historical information
         
         ```bash
         google-chrome http://localhost:19888
-                ```
+         ```
     - Alternatively, navigate to `http://localhost:19888` in any browser.
         
 88. **What to Check:**
@@ -1253,30 +1253,28 @@ To ensure HDFS is functioning correctly, you can perform basic file operations.
         ```bash
 	    cd ~/Downloads
         wget http://www.gutenberg.org/files/2701/2701-0.txt
-                ```
+        ```
 90. **Create a Directory in HDFS:**
     
     - Create a directory called `/in` in HDFS:
         
         ```bash
          hdfs dfs -mkdir /in
-               ``` 
+         ``` 
 91. **Copy the File to HDFS:**
     
 - Copy the downloaded file to the `/in` directory in HDFS:
         
     ```bash
         hdfs dfs -copyFromLocal ~/Downloads/2701-0.txt /in/mobydick.txt
-                ```
+     ```
 92. **List the Contents of the Directory:**
     
 - Verify that the file has been copied successfully:
         
     ```bash
-        
         hdfs dfs -ls /in
-        
-        ```
+     ```
 ---
 
 ### **Step 29: Verify YARN by Submitting and Executing a MapReduce Job**
@@ -1291,7 +1289,7 @@ To ensure YARN and MapReduce are functioning correctly, you can submit a sample 
         
     ```bash
          yarn jar /usr/local/hadoop/hadoop-3.3.6/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /in /out
-                ```
+    ```
                 
                 
     - **Explanation:**
@@ -1303,7 +1301,7 @@ To ensure YARN and MapReduce are functioning correctly, you can submit a sample 
 - Once the job completes, view the output:
     ```bash
         hdfs dfs -cat /out/part-r-00000
-                ```
+     ```
     - The output will show the frequency of each word in the "Moby Dick" book.
         
 
